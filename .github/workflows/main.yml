@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy
+jobs:
+  web-deploy:
+    name: 🎉 Deploy on picksindia.com
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: 🔨 Build Project
+        run: |
+          npm install 
+          npm run build
+
+      - name: List output files
+        run: find dist/ -print
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: 69.62.82.82
+          username: user_dev_texmith_1
+          password: gU/ER!1nNakj{ZoE
+          server-dir: /ai_tool_react/
+          local-dir: dist/
