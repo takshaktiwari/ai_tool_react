@@ -5,7 +5,7 @@ on:
 name: 🚀 Deploy
 jobs:
   web-deploy:
-    name: 🎉 Deploy on picksindia.com
+    name: 🎉 Deploy on https://dev.texmith.com/ai_tool_react/
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
