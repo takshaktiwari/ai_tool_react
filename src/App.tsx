@@ -13,7 +13,11 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter
+        basename={
+          import.meta.env.MODE === "production" ? "/ai_tool_react" : "/"
+        }
+      >
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="*" element={<NotFound />} />
